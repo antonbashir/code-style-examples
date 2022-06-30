@@ -9,22 +9,21 @@ class UserStorage {
     users[id] = User(id: id, name: user.name, email: user.email);
     return users[id];
   }
+
+  User delete(int id) => users.remove(id);
 }
 
 class UserServiceImplementation extends UserService {
   final storage = UserStorage();
 
   @override
-  void create(String name, String email) {
+  User create(String name, String email) {
     if (name.isEmpty || email.isEmpty) throw new Exception("Invalid data");
-    storage.create(User(name: name, email: email));
+    return storage.create(User(name: name, email: email));
   }
 
   @override
-  User delete(int id) {
-    // TODO: implement delete
-    throw UnimplementedError();
-  }
+  User delete(int id) => storage.delete(id);
 
   @override
   User get(int id) {
