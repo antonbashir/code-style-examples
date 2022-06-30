@@ -1,4 +1,5 @@
 import 'package:examples/examples/modules/implementation/implementation.dart';
+import 'package:examples/examples/modules/library/library.dart';
 import 'package:flutter/material.dart';
 
 class UserApplication extends StatefulWidget {
@@ -27,14 +28,14 @@ class _UserApplicationState extends State<UserApplication> {
               SizedBox(
                 width: 300,
                 child: TextField(
-                  decoration: InputDecoration(hintText: "Имя"),
+                  decoration: InputDecoration(hintText: NAME_HINT),
                   onChanged: _updateName,
                 ),
               ),
               SizedBox(
                 width: 300,
                 child: TextField(
-                  decoration: InputDecoration(hintText: "Почта"),
+                  decoration: InputDecoration(hintText: EMAIL_HINT),
                   onChanged: _updateEmail,
                 ),
               ),
@@ -43,7 +44,7 @@ class _UserApplicationState extends State<UserApplication> {
                 width: 300,
                 child: OutlinedButton(
                   onPressed: _register,
-                  child: Text("Зарегистрировать"),
+                  child: Text(REGISTER_BUTTON_LABEL),
                 ),
               )
             ]),
