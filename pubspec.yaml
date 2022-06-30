@@ -8,9 +8,5 @@ dependencies:
   flutter:
     sdk: flutter
 
-dev_dependencies:
-  flutter:
-    sdk: flutter
-
 flutter:
   uses-material-design: true
