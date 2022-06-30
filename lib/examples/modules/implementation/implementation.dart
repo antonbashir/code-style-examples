@@ -1,10 +1,23 @@
 import 'package:examples/examples/modules/interface/interface.dart';
 import 'package:examples/examples/modules/interface/model.dart';
 
+class UserStorage {
+  final users = {};
+
+  User create(User user) {
+    final id = users.length;
+    users[id] = User(id: id, name: user.name, email: user.email);
+    return users[id];
+  }
+}
+
 class UserServiceImplementation extends UserService {
+  final storage = UserStorage();
+
   @override
   void create(String name, String email) {
-    // TODO: implement create
+    if (name.isEmpty || email.isEmpty) throw new Exception("Invalid data");
+    storage.create(User(name: name, email: email));
   }
 
   @override
